@@ -211,3 +211,68 @@ footer {
 .contact-section .btn:hover {
     animation: none; /* Stop pulsing when user hovers to click */
 }
+
+.skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.skills-list ul {
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+.skills-list li::before {
+    content: "▹";
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+/* Calculator Styling */
+.calculator {
+    background: #222;
+    padding: 20px;
+    border-radius: 20px;
+    width: 280px;
+    margin: 0 auto;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.calc-display {
+    background: #333;
+    color: white;
+    font-size: 2rem;
+    text-align: right;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calc-btn {
+    padding: 15px;
+    border-radius: 50%;
+    border: none;
+    background: #444;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.calc-btn:hover { background: #555; }
+.calc-btn.accent { background: var(--accent-color); }
+.calc-btn.gray { background: #999; color: black; }
+.calc-btn.wide { grid-column: span 2; border-radius: 30px; }
+
+@media (max-width: 768px) {
+    .skills-layout { grid-template-columns: 1fr; }
+}
