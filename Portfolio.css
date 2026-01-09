@@ -157,3 +157,122 @@ footer {
     .hero h1 { font-size: 2rem; }
     .nav-links { display: none; } /* Simplicity: Hides nav links on very small screens */
 }
+
+
+
+/* --- New Animation Keyframes --- */
+
+/* Text fading and moving up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Subtle pulse for buttons */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* --- Applying Animations --- */
+
+/* Animate the Hero content on page load */
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Staggered load for the hero paragraph */
+.hero-content p {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* Enhanced Project Card Hover */
+.card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02); /* Lifts and grows slightly */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Pulse animation for the main Contact button */
+.contact-section .btn {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.contact-section .btn:hover {
+    animation: none; /* Stop pulsing when user hovers to click */
+}
+
+.skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.skills-list ul {
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+.skills-list li::before {
+    content: "▹";
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+/* Calculator Styling */
+.calculator {
+    background: #222;
+    padding: 20px;
+    border-radius: 20px;
+    width: 280px;
+    margin: 0 auto;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.calc-display {
+    background: #333;
+    color: white;
+    font-size: 2rem;
+    text-align: right;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calc-btn {
+    padding: 15px;
+    border-radius: 50%;
+    border: none;
+    background: #444;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.calc-btn:hover { background: #555; }
+.calc-btn.accent { background: var(--accent-color); }
+.calc-btn.gray { background: #999; color: black; }
+.calc-btn.wide { grid-column: span 2; border-radius: 30px; }
+
+@media (max-width: 768px) {
+    .skills-layout { grid-template-columns: 1fr; }
+}
